@@ -23,3 +23,7 @@ The LinkedList class defines several methods for interacting with the list and n
 #find(data) returns the index of the node containing data, or nil if not found.
 
 #to_s represent the LinkedList objects as strings, so you can print them out and preview them in the console. The format is: ( data ) -> ( data ) -> ( data ) -> nil
+
+#insert_at(index, data) inserts the data at the given index
+
+#remove_at(index) removes the node at the given index.

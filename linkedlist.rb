@@ -95,16 +95,41 @@ def to_s
 #format: ( data ) -> ( data ) -> ( data ) -> nil
 temp=@head
 str="(#{@head.data})->"
-while (temp.next_node!=nil)
-  temp=temp.next_node
-  str+="(#{temp.data})->"
-end
+  while (temp.next_node!=nil)
+    temp=temp.next_node
+    str+="(#{temp.data})->"
+  end
   str+="nil"
   puts str
 end
 
+def insert_at(index, newdata)
+  i=0
+  temp=@head
+  while (i!=index && temp!=nil)
+    temp=temp.next_node
+    i+=1
+  end
+  after_new=temp.next_node
+  temp.next_node=Node.new(newdata, after_new)
+end
+
+def remove_at(index)
+  i=0
+  temp=@head
+  while (i!=(index-1) && temp!=nil)
+    temp=temp.next_node
+    i+=1
+  end
+  temp.next_node=temp.next_node.next_node
+end
+
+#refactor the repetitive stuff-DRY
+
+end
+
 class Node
-attr_accessor :next_node, :data
+attr_accessor :data, :next_node
 def initialize(data=nil, next_node=nil)
   @data=data
   @next_node=next_node 
